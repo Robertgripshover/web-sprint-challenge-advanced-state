@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
-
+import {wheel} from './../state/reducer'
+ 
 function Wheel(props) {
 
   return (
