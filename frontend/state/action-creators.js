@@ -1,7 +1,15 @@
 // ❗ You don't need to add extra action creators to achieve MVP
-export function moveClockwise() { }
+import axios from 'axios'
 
-export function moveCounterClockwise() { }
+export function moveClockwise() {
+  
+  console.log('movin clockwise')
+ }
+
+export function moveCounterClockwise() {
+ 
+  console.log('movin counter clockwise')
+ }
 
 export function selectAnswer() { }
 
