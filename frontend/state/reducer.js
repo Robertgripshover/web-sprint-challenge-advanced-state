@@ -12,44 +12,19 @@ const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
   switch(action.type) {
     case MOVE_CLOCKWISE:
+      console.log('move with')
+      return{
+        ...state, 
+        initialWheelState: initialWheelState + 1
+      }
 
     case MOVE_COUNTERCLOCKWISE:
-        if (initialWheelState === 0){
-          return {
-            ...state, 
-            initialWheelState: 5
-          }
+      console.log('move counter')
+      return{
+        ...state, 
+        initialWheelState: initialWheelState - 1
         }
-        if (initialWheelState === 1){
-          return {
-            ...state, 
-            initialWheelState: 0
-          }
-        }
-        if (initialWheelState === 2){
-          return {
-            ...state, 
-            initialWheelState: 1
-          }
-        }
-        if (initialWheelState === 3){
-          return {
-            ...state, 
-            initialWheelState: 2
-          }
-        }
-        if (initialWheelState === 4){
-          return {
-            ...state, 
-            initialWheelState: 3
-          }
-        }
-        else if (initialWheelState === 5){
-          return {
-            ...state, 
-            initialWheelState: 4
-          }
-        }
+
         default:
           return(state)
 
