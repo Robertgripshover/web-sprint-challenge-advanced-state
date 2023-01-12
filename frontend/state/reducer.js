@@ -10,7 +10,85 @@ import {MOVE_CLOCKWISE,
 
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
-  return state
+  switch(action.type) {
+    case MOVE_CLOCKWISE:
+      if (initialWheelState === 0){
+        return {
+          ...state, 
+          initialWheelState: 1
+        }
+      }
+      if (initialWheelState === 1){
+        return {
+          ...state, 
+          initialWheelState: 2
+        }
+      }
+      if (initialWheelState === 2){
+        return {
+          ...state, 
+          initialWheelState: 3
+        }
+      }
+      if (initialWheelState === 3){
+        return {
+          ...state, 
+          initialWheelState: 4
+        }
+      }
+      if (initialWheelState === 4){
+        return {
+          ...state, 
+          initialWheelState: 5
+        }
+      }
+      else if (initialWheelState === 5){
+        return {
+          ...state, 
+          initialWheelState: 0
+        }
+      }
+    case MOVE_COUNTERCLOCKWISE:
+        if (initialWheelState === 0){
+          return {
+            ...state, 
+            initialWheelState: 5
+          }
+        }
+        if (initialWheelState === 1){
+          return {
+            ...state, 
+            initialWheelState: 0
+          }
+        }
+        if (initialWheelState === 2){
+          return {
+            ...state, 
+            initialWheelState: 1
+          }
+        }
+        if (initialWheelState === 3){
+          return {
+            ...state, 
+            initialWheelState: 2
+          }
+        }
+        if (initialWheelState === 4){
+          return {
+            ...state, 
+            initialWheelState: 3
+          }
+        }
+        else if (initialWheelState === 5){
+          return {
+            ...state, 
+            initialWheelState: 4
+          }
+        }
+        default:
+          return(state)
+
+  }
 }
 
 const initialQuizState = null
