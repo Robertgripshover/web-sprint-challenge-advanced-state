@@ -1,9 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
-import {wheel} from './../state/reducer'
+import initialWheelState from '../state/reducer'
+import wheel from '../state/reducer'
+import {useReducer} from 'react'
+
+
  
-function Wheel(props, dispatch) {
+function Wheel(props) {
+
+  const [state, dispatch] = useReducer(wheel, initialWheelState)
 
   return (
     <div id="wrapper">
@@ -22,6 +28,8 @@ function Wheel(props, dispatch) {
     </div>
   )
 }
+
+
 
 
 
