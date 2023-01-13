@@ -3,6 +3,9 @@ import { combineReducers } from 'redux'
 import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
     SET_SELECTED_ANSWER, SET_INFO_MESSAGE, INPUT_CHANGE,
     RESET_FORM} from './action-types'
+import { moveClockwise, moveCounterClockwise } from './action-creators'
+
+
 
 
 
@@ -30,8 +33,11 @@ function wheel(state = initialWheelState, action) {
     default:
       return(state)  
   }
-
 }
+//^^^ I think that this above function is actually working. I just have not been able to 
+//hook this function up to my DOM to hit it with the buttons yet.
+
+
 
 
 

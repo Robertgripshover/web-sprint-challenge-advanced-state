@@ -1,14 +1,17 @@
 // ❗ You don't need to add extra action creators to achieve MVP
-import axios from 'axios'
+
+import { useReducer } from 'react'
 import { MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE } from './action-types'
+import {wheel, initialWheelState} from './reducer'
+
+
+// const [state, dispatch] = useReducer(wheel, initialWheelState)
 
 export function moveClockwise() {
-  console.log('movin in action creator 1')
   return({type: MOVE_CLOCKWISE}) 
  }
 
 export function moveCounterClockwise() {
-  console.log('movin in action creator 2')
   return({type: MOVE_COUNTERCLOCKWISE})
  }
 

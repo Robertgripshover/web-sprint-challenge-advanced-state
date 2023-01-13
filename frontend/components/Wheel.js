@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
 import {wheel} from './../state/reducer'
  
-function Wheel(props) {
+function Wheel(props, dispatch) {
 
   return (
     <div id="wrapper">
@@ -17,7 +17,7 @@ function Wheel(props) {
       </div>
       <div id="keypad">
         <button onClick={moveCounterClockwise} id="counterClockwiseBtn" >Counter clockwise</button>
-        <button onClick={moveClockwise}id="clockwiseBtn">Clockwise</button>
+        <button onClick={moveClockwise} id="clockwiseBtn">Clockwise</button>
       </div>
     </div>
   )
@@ -25,4 +25,15 @@ function Wheel(props) {
 
 
 
-export default connect(null, {moveClockwise, moveCounterClockwise})(Wheel)
+
+
+
+const mapStateToProps = state => {
+  return {
+    initialWheelState: state.initialWheelState
+  }
+}
+
+
+
+export default connect(mapStateToProps, {moveClockwise, moveCounterClockwise})(Wheel)
