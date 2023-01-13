@@ -1,9 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
-import initialWheelState from '../state/reducer'
-import wheel from '../state/reducer'
 import {useReducer} from 'react'
+import wheel from '../state/reducer'
+import {initialWheelState} from '../state/reducer'
+import reducer from '../state/reducer'
 
 
  
@@ -22,8 +23,8 @@ function Wheel(props) {
         <div className="cog" style={{ "--i": 5 }}></div>{/* --i is a custom CSS property, no need to touch that nor the style object */}
       </div>
       <div id="keypad">
-        <button onClick={moveCounterClockwise} id="counterClockwiseBtn" >Counter clockwise</button>
-        <button onClick={moveClockwise} id="clockwiseBtn">Clockwise</button>
+        <button onClick={() => dispatch(moveCounterClockwise)} id="counterClockwiseBtn" >Counter clockwise</button>
+        <button onClick={() => dispatch(moveClockwise)} id="clockwiseBtn">Clockwise</button>
       </div>
     </div>
   )
@@ -41,7 +42,6 @@ const mapStateToProps = state => {
     initialWheelState: state.initialWheelState
   }
 }
-
 
 
 export default connect(mapStateToProps, {moveClockwise, moveCounterClockwise})(Wheel)

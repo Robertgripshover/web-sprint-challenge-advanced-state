@@ -1,9 +1,6 @@
 // ❗ You don't need to add extra action creators to achieve MVP
 
-import { useReducer } from 'react'
 import { MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE } from './action-types'
-import {wheel, initialWheelState} from './reducer'
-
 
 // const [state, dispatch] = useReducer(wheel, initialWheelState)
 

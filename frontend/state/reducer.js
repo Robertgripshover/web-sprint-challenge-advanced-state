@@ -7,15 +7,9 @@ import { moveClockwise, moveCounterClockwise } from './action-creators'
 
 
 
-
-
-
-
-
-
-
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
+ 
 
   switch(action.type) {
     case MOVE_CLOCKWISE:
