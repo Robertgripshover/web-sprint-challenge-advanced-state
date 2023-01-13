@@ -12,14 +12,14 @@ const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
   switch(action.type) {
     case MOVE_CLOCKWISE:
-      console.log('move with')
+      console.log('move clockwise')
       return{
         ...state, 
         initialWheelState: initialWheelState + 1
       }
 
     case MOVE_COUNTERCLOCKWISE:
-      console.log('move counter')
+      console.log('move COUNTERclockwise')
       return{
         ...state, 
         initialWheelState: initialWheelState - 1
