@@ -46,7 +46,7 @@ function Wheel(props) {
 
 const mapStateToProps = state => {
   return {
-    initialWheelState: state.initialWheelState
+    initialWheelState: state.wheel.initialWheelState
   }
 }
 
