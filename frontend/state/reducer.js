@@ -24,17 +24,20 @@ function wheel(state = initialWheelState, action) {
     case MOVE_CLOCKWISE:
       return{
         ...state, 
-        initialWheelState: initialWheelState + 1
+        initialWheelState: initialWheelState + 2
       }
 
     case MOVE_COUNTERCLOCKWISE:
       return{
         ...state, 
-        initialWheelState: initialWheelState + 2
+        initialWheelState: initialWheelState + 1
       }
 
     default:
-      return(state)  
+      return{
+        ...state, 
+        initialWheelState: initialWheelState
+      } 
   }
 }
 
