@@ -1,16 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
-import {useReducer} from 'react'
-import wheel from '../state/reducer'
-import initialWheelState from '../state/reducer'
-import reducer from '../state/reducer'
 
-
+//NOTICE 1/16/2023 
+//I AM PRETTY SURE THAT THIS WHOLE PAGE IS WORKING PERFECTLY AND NOTHING NEEDS CHANGED.
+//YOU NEED TO FINISH WORKING ON THE REDUCER.JS. IN THERE YOU NEED TO 
+//MAKE IT SO THAT THE INITIAL WHEEL STATE ACTUALY UPDATES.
  
 function Wheel(props) {
 
   const {initialWheelState, moveClockwise, moveCounterClockwise} = props
+
 
   const handleCounterClockWiseClick = () => {
     moveCounterClockwise()
@@ -22,10 +22,10 @@ function Wheel(props) {
 
 
   return (
+
     <div id="wrapper">
 
-
-      <div>Wheel at: {`${initialWheelState}`}</div>{/*This div is for experimenting */}
+      <div>initialWheelState at: {`${initialWheelState}`}</div>{/*This div is for experimenting, it can be removed after  */}
 
       <div id="wheel">
         <div className={initialWheelState === 0 ? "cog active" : 'cog'} style={{ "--i": 0 }}>{initialWheelState === 0 ? "B" : ''}</div>
@@ -37,14 +37,15 @@ function Wheel(props) {
       </div>  
       {/* --i is a custom CSS property, no need to touch that nor the style object */}
 
-
-
       <div id="keypad">
         <button onClick={handleCounterClockWiseClick} id="counterClockwiseBtn" >Counter clockwise</button>
         <button onClick={handleClockWiseClick} id="clockwiseBtn">Clockwise</button>
       </div>
+
    </div>
+
   )
+
 }
 
 

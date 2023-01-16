@@ -3,18 +3,14 @@ import { combineReducers } from 'redux'
 import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
     SET_SELECTED_ANSWER, SET_INFO_MESSAGE, INPUT_CHANGE,
     RESET_FORM} from './action-types'
-import { moveClockwise, moveCounterClockwise } from './action-creators'
-
-
-
-
-
-
-
 
 
 
 //DO NOT TOUCH ABOVE THIS LINE, ALL WORKING^^^
+
+
+
+//THE WORK NEEDS TO BE DONE HERE TO MAKE THE NUMBER GO UP AND KEEP GOING UPvvv
 
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
@@ -22,16 +18,20 @@ function wheel(state = initialWheelState, action) {
 
   switch(action.type) {
     case MOVE_CLOCKWISE:
-      return{
-        ...state, 
-        initialWheelState: initialWheelState + 2
-      }
+      
+        return{
+          ...state, 
+          initialWheelState: initialWheelState + 1
+        }
+
+      
 
     case MOVE_COUNTERCLOCKWISE:
-      return{
-        ...state, 
-        initialWheelState: initialWheelState + 1
-      }
+
+        return{
+          ...state, 
+          initialWheelState: initialWheelState + 5
+        }
 
     default:
       return{
@@ -41,34 +41,7 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
-//this blob is working^^^ commented out for testing
-
-// const initialWheelState = ['', '', '', 'B', '', ''] //THIS just used to be a 0, so if you end up needing to go back to normal you can just delete it. 
-// function wheel(state = initialWheelState, action) {
-//   const newWheelState = [...initialWheelState]
-  
-//   switch(action.type) {
-//     case MOVE_CLOCKWISE:
-//       newWheelState.unshift(newWheelState.pop())
-//       return{
-//         ...state, 
-//         initialWheelState: newWheelState
-//       }
-
-//     case MOVE_COUNTERCLOCKWISE:
-//       newWheelState.push(newWheelState.shift())
-//       return{
-//         ...state, 
-//         initialWheelState: newWheelState
-//       }
-
-//     default:
-//       return(state)  
-//   }
-// }
-//EXPERIMENTAL^^^^
-
-
+//THE WORK NEEDS TO BE DONE HERE TO MAKE THE NUMBER GO UP AND KEEP GOING UP^^^
 
 
 
