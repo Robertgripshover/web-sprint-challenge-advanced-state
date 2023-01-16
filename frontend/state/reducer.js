@@ -7,6 +7,9 @@ import { moveClockwise, moveCounterClockwise } from './action-creators'
 
 
 
+
+
+
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
  
@@ -28,8 +31,6 @@ function wheel(state = initialWheelState, action) {
       return(state)  
   }
 }
-//^^^ I think that this above function is actually working. I just have not been able to 
-//hook this function up to my DOM to hit it with the buttons yet.
 
 
 
@@ -37,7 +38,7 @@ function wheel(state = initialWheelState, action) {
 
 
 
-
+///below this line is untouched
 
 
 
