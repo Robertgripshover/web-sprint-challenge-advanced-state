@@ -10,6 +10,12 @@ import { moveClockwise, moveCounterClockwise } from './action-creators'
 
 
 
+
+
+
+
+//DO NOT TOUCH ABOVE THIS LINE, ALL WORKING^^^
+
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
  
@@ -18,13 +24,13 @@ function wheel(state = initialWheelState, action) {
     case MOVE_CLOCKWISE:
       return{
         ...state, 
-        initialWheelState: initialWheelState + 8
+        initialWheelState: initialWheelState + 1
       }
 
     case MOVE_COUNTERCLOCKWISE:
       return{
         ...state, 
-        initialWheelState: initialWheelState - 1
+        initialWheelState: initialWheelState + 2
       }
 
     default:
@@ -32,13 +38,37 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
+//this blob is working^^^ commented out for testing
+
+// const initialWheelState = ['', '', '', 'B', '', ''] //THIS just used to be a 0, so if you end up needing to go back to normal you can just delete it. 
+// function wheel(state = initialWheelState, action) {
+//   const newWheelState = [...initialWheelState]
+  
+//   switch(action.type) {
+//     case MOVE_CLOCKWISE:
+//       newWheelState.unshift(newWheelState.pop())
+//       return{
+//         ...state, 
+//         initialWheelState: newWheelState
+//       }
+
+//     case MOVE_COUNTERCLOCKWISE:
+//       newWheelState.push(newWheelState.shift())
+//       return{
+//         ...state, 
+//         initialWheelState: newWheelState
+//       }
+
+//     default:
+//       return(state)  
+//   }
+// }
+//EXPERIMENTAL^^^^
 
 
 
 
 
-
-///below this line is untouched
 
 
 
