@@ -1,8 +1,8 @@
 // ❗ You don't need to add extra action creators to achieve MVP
 
-import { MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE } from './action-types'
+import { MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
+   SET_SELECTED_ANSWER, SET_INFO_MESSAGE, INPUT_CHANGE,  RESET_FORM} from './action-types'
 
-// const [state, dispatch] = useReducer(wheel, initialWheelState)
 
 export function moveClockwise() {
   return({type: MOVE_CLOCKWISE}) 
