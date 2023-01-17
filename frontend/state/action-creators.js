@@ -12,7 +12,9 @@ export function moveCounterClockwise() {
   return({type: MOVE_COUNTERCLOCKWISE})
  }
 
-export function selectAnswer() { }
+export function selectAnswer() { 
+  return({type: SET_SELECTED_ANSWER})
+}
 
 export function setMessage() { }
 

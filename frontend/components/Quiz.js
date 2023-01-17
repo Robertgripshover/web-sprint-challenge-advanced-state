@@ -1,6 +1,11 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { selectAnswer, setQuiz } from '../state/action-creators'
 
-export default function Quiz(props) {
+ function Quiz(props) {
+
+  const {initialQuizState, initialSelectedAnswerState, setQuiz, selectAnswer} = props
+
   return (
     <div id="wrapper">
       {
@@ -8,6 +13,10 @@ export default function Quiz(props) {
         true ? (
           <>
             <h2>What is a closure?</h2>
+
+            {/*I need to make a turnary statement that says whether or not 
+            the button is clicked makes the className change from either 
+            "answer seleted" or "answer"*/}
 
             <div id="quizAnswers">
               <div className="answer selected">
@@ -32,3 +41,12 @@ export default function Quiz(props) {
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    initialQuizState: state.quiz.initialQuizState,
+    initialSelectedAnswerState: state.selectedAnswer.initialSelectedAnswerState
+  }
+}
+
+export default connect(mapStateToProps, {setQuiz, selectAnswer})(Quiz)

@@ -2,10 +2,9 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
 
-//NOTICE 1/16/2023 
-//I AM PRETTY SURE THAT THIS WHOLE PAGE IS WORKING PERFECTLY AND NOTHING NEEDS CHANGED.
-//YOU NEED TO FINISH WORKING ON THE REDUCER.JS. IN THERE YOU NEED TO 
-//MAKE IT SO THAT THE INITIAL WHEEL STATE ACTUALY UPDATES.
+//NOTICE 1/17/2023
+//COMPONENET COMPLETE! 
+//this component is working perfectly and is finished. 
  
 function Wheel(props) {
 
@@ -25,7 +24,7 @@ function Wheel(props) {
 
     <div id="wrapper">
 
-      <div>initialWheelState at: {`${initialWheelState}`}</div>{/*This div is for experimenting, it can be removed after  */}
+      <div>Wheel at position: {`${initialWheelState}`}</div>{/*This div is for experimenting, it can be removed after*/}
 
       <div id="wheel">
         <div className={initialWheelState === 0 ? "cog active" : 'cog'} style={{ "--i": 0 }}>{initialWheelState === 0 ? "B" : ''}</div>
@@ -54,6 +53,5 @@ const mapStateToProps = state => {
     initialWheelState: state.wheel.initialWheelState
   }
 }
-
 
 export default connect(mapStateToProps, {moveClockwise, moveCounterClockwise})(Wheel)

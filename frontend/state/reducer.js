@@ -60,12 +60,12 @@ function wheel(state = initialWheelState, action) {
 
 
 
-const initialQuizState = null
+const initialQuizState = 'hello Bobby this was null'
 function quiz(state = initialQuizState, action) {
   return state
 }
 
-const initialSelectedAnswerState = null
+const initialSelectedAnswerState = 'hello Bobby this was null'
 function selectedAnswer(state = initialSelectedAnswerState, action) {
   return state
 }
