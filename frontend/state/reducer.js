@@ -10,6 +10,8 @@ import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
 
 
 
+
+
 //THE WORK NEEDS TO BE DONE HERE TO MAKE THE NUMBER GO UP AND KEEP GOING UPvvv
 
 const initialWheelState = 0
@@ -21,16 +23,15 @@ function wheel(state = initialWheelState, action) {
       
         return{
           ...state, 
-          initialWheelState: initialWheelState + 1
+          initialWheelState: state.initialWheelState + 1
         }
 
-      
 
     case MOVE_COUNTERCLOCKWISE:
 
         return{
           ...state, 
-          initialWheelState: initialWheelState + 5
+          initialWheelState: state.initialWheelState - 1
         }
 
     default:
