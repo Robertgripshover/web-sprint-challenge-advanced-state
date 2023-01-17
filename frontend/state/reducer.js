@@ -9,11 +9,6 @@ import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
 //DO NOT TOUCH ABOVE THIS LINE, ALL WORKING^^^
 
 
-
-
-
-//THE WORK NEEDS TO BE DONE HERE TO MAKE THE NUMBER GO UP AND KEEP GOING UPvvv
-
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
  
@@ -21,18 +16,26 @@ function wheel(state = initialWheelState, action) {
   switch(action.type) {
     case MOVE_CLOCKWISE:
       
-        return{
-          ...state, 
-          initialWheelState: state.initialWheelState + 1
-        }
+    if(state.initialWheelState === 5){
+      return {initialWheelState: 0}
+     }
 
+    else {
+      return {...state, 
+        initialWheelState: state.initialWheelState + 1}
+    }
 
     case MOVE_COUNTERCLOCKWISE:
+      
 
-        return{
-          ...state, 
-          initialWheelState: state.initialWheelState - 1
-        }
+     if(state.initialWheelState === 0){
+      return {initialWheelState: 5}
+     }
+
+     else {
+      return {...state, 
+        initialWheelState: state.initialWheelState - 1}
+     }
 
     default:
       return{
@@ -42,7 +45,42 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
-//THE WORK NEEDS TO BE DONE HERE TO MAKE THE NUMBER GO UP AND KEEP GOING UP^^^
+
+
+
+//VVV this function set is working!! I just need to make it go back down to 
+//when it goes over 5 or under 0
+
+// const initialWheelState = 0
+// function wheel(state = initialWheelState, action) {
+ 
+
+//   switch(action.type) {
+//     case MOVE_CLOCKWISE:
+      
+//         return{
+//           ...state, 
+//           initialWheelState: state.initialWheelState + 1
+//         }
+
+
+//     case MOVE_COUNTERCLOCKWISE:
+
+//         return{
+//           ...state, 
+//           initialWheelState: state.initialWheelState - 1
+//         }
+
+//     default:
+//       return{
+//         ...state, 
+//         initialWheelState: initialWheelState
+//       } 
+//   }
+// }
+
+//^^^ this function set is working!! I just need to make it go back down to 
+//when it goes over 5 or under 0
 
 
 
