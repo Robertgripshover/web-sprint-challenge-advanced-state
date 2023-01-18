@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
-import { selectAnswer, setQuiz } from '../state/action-creators'
+import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
-  const {initialQuizState, initialSelectedAnswerState, setQuiz, selectAnswer} = props
+  const {initialQuizState, initialSelectedAnswerState, setQuiz, selectAnswer, newQuiz} = props
+
+  // useEffect(() => {
+  //   setQuiz()
+  // }, [])
 
   return (
     <div id="wrapper">
@@ -12,7 +16,7 @@ import { selectAnswer, setQuiz } from '../state/action-creators'
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         true ? (
           <>
-            <h2>What is a closure?</h2>
+            <h2>{newQuiz}</h2>
 
             {/*I need to make a turnary statement that says whether or not 
             the button is clicked makes the className change from either 
@@ -42,11 +46,14 @@ import { selectAnswer, setQuiz } from '../state/action-creators'
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    initialQuizState: state.quiz.initialQuizState,
-    initialSelectedAnswerState: state.selectedAnswer.initialSelectedAnswerState
-  }
-}
+export default connect(st => ({
+  initialQuizState: st.quiz.initialQuizState,
+  initialSelectedAnswerState: st.selectedAnswer.initialSelectedAnswerState,
+  newQuiz: st.newQuiz
 
-export default connect(mapStateToProps, {setQuiz, selectAnswer})(Quiz)
+}), {
+
+  setQuiz: actions.setQuiz,
+  setMessage: actions.setMessage
+
+})(Quiz)

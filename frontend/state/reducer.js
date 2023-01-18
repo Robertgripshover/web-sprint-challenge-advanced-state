@@ -1,8 +1,6 @@
 // ❗ You don't need to add extra reducers to achieve MVP
 import { combineReducers } from 'redux'
-import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
-    SET_SELECTED_ANSWER, SET_INFO_MESSAGE, INPUT_CHANGE,
-    RESET_FORM} from './action-types'
+import * as actionTypes from './action-types'
 
 
 
@@ -10,7 +8,7 @@ import {MOVE_CLOCKWISE, MOVE_COUNTERCLOCKWISE, SET_QUIZ_INTO_STATE,
 
 
 
- //THIS FUNCTION COMPLETLY WORKINGVVV the 'wheel'   
+ //VVVVVVVVTHIS FUNCTION COMPLETLY WORKINGVVV the 'wheel'   
 
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
@@ -18,7 +16,7 @@ function wheel(state = initialWheelState, action) {
 
   switch(action.type) {
 
-    case MOVE_CLOCKWISE:
+    case actionTypes.MOVE_CLOCKWISE:
       
       if(state.initialWheelState === 5){
         return {initialWheelState: 0}
@@ -28,7 +26,7 @@ function wheel(state = initialWheelState, action) {
           initialWheelState: state.initialWheelState + 1}
       }
 
-    case MOVE_COUNTERCLOCKWISE:
+    case actionTypes.MOVE_COUNTERCLOCKWISE:
       
       if(state.initialWheelState === 0){
         return {initialWheelState: 5}
@@ -46,34 +44,51 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
-//THIS FUNCTION COMPLETLY WORKING^^^ the 'wheel'  
+//^^^^^^^THIS FUNCTION COMPLETLY WORKING^^^ the 'wheel'  
 
 
 
-
-
-
-
-
-
-
-
-
-
-const initialQuizState = 'hello Bobby this was null'
-function quiz(state = initialQuizState, action) {
-  return state
+const initialMessageState = ''
+function infoMessage(state = initialMessageState, action) {
+  switch(action.type) {
+    case actionTypes.RESET_FORM:
+      return initialMessageState
+    case actionTypes.SET_INFO_MESSAGE:
+      return action.payload
+    default:
+      return state
+  }
 }
+
+const initialQuizState = ''
+function quiz(state = initialQuizState, action) {
+  switch(action.type) {
+    case actionTypes.RESET_FORM:
+      return initialQuizState
+    case actionTypes.SET_QUIZ_INTO_STATE:
+      return action.payload
+    default:
+      return state
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 const initialSelectedAnswerState = 'hello Bobby this was null'
 function selectedAnswer(state = initialSelectedAnswerState, action) {
   return state
 }
 
-const initialMessageState = ''
-function infoMessage(state = initialMessageState, action) {
-  return state
-}
 
 const initialFormState = {
   newQuestion: '',
