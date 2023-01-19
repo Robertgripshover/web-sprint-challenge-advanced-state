@@ -7,11 +7,13 @@ import * as actions from '../state/action-creators'
   const [isOneActive, setOneActive] = useState(false)
   const [isTwoActive, setTwoActive] = useState(false)
 
-  const {initialQuizState, initialSelectedAnswerState, setQuiz, selectAnswer, newQuiz} = props
+  const { newQuiz, fetchQuiz} = props
 
-  // useEffect(() => {
-  //   setQuiz()
-  // }, [])
+  useEffect(() => {
+    fetchQuiz()
+  }, [])
+
+  if(!newQuiz) return null
 
 
   const toggleOneButtonClass = () => {
@@ -27,6 +29,11 @@ import * as actions from '../state/action-creators'
       setOneActive(false)
     }
   }
+
+
+
+  //TODAY 1-20-2023 I need to use the newQuiz thing to pump my stuff coming in 
+  //from the API
   
 
 
@@ -36,11 +43,7 @@ import * as actions from '../state/action-creators'
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         true ? (
           <>
-            <h2>What bear is best?</h2>
-
-            {/*I need to make a turnary statement that says whether or not 
-            the button is clicked makes the className change from either 
-            "answer seleted" or "answer"*/}
+            <h2>{newQuiz.question}</h2>
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
@@ -69,13 +72,10 @@ import * as actions from '../state/action-creators'
 }
 
 export default connect(st => ({
-  initialQuizState: st.quiz.initialQuizState,
-  initialSelectedAnswerState: st.selectedAnswer.initialSelectedAnswerState,
   newQuiz: st.newQuiz
 
 }), {
 
-  setQuiz: actions.setQuiz,
-  setMessage: actions.setMessage
+  fetchQuiz: actions.fetchQuiz
 
 })(Quiz)

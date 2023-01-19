@@ -60,11 +60,9 @@ function infoMessage(state = initialMessageState, action) {
   }
 }
 
-const initialQuizState = ''
+const initialQuizState = null
 function quiz(state = initialQuizState, action) {
   switch(action.type) {
-    case actionTypes.RESET_FORM:
-      return initialQuizState
     case actionTypes.SET_QUIZ_INTO_STATE:
       return action.payload
     default:
@@ -84,7 +82,7 @@ function quiz(state = initialQuizState, action) {
 
 
 
-const initialSelectedAnswerState = 'hello Bobby this was null'
+const initialSelectedAnswerState = ''
 function selectedAnswer(state = initialSelectedAnswerState, action) {
   return state
 }
