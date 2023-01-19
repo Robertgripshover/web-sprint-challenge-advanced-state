@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react'
+import {connect} from 'react-redux'
 import * as actions from '../state/action-creators'
 
 
 
-export default function Message(props) {
+function Message(props) {
 
-  const {setMessage} = props
+  const {setMessage, message} = props
+
+  useEffect(() => {
+    // setMessage()
+  }, [])
   
 
-  return <div id="message">Nice job!</div>
+  return <div id="message">Message: </div>
 
 
 
@@ -21,12 +26,10 @@ export default function Message(props) {
 
 
 
-// export default connect(st => ({
-//   initialQuizState: st.quiz.initialQuizState,
-//   initialSelectedAnswerState: st.selectedAnswer.initialSelectedAnswerState,
+export default connect(st => ({
+  message: st.message
+}), {
 
-// }), {
+  setMessage: actions.setMessage
 
-//   setMessage: actions.setMessage
-
-// })(Message)
+})(Message)
