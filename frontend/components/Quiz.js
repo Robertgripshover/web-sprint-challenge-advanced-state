@@ -13,13 +13,21 @@ import * as actions from '../state/action-creators'
   //   setQuiz()
   // }, [])
 
-  const toggleButtonOneClass = () => {
-    setOneActive(!isOneActive)
+
+  const toggleOneButtonClass = () => {
+    if(isOneActive === false) {
+      setOneActive(true)
+      setTwoActive(false)
+    }
   }
 
-  const toggleButtonTwoClass = () => {
-    setTwoActive(!isTwoActive)
+  const toggleTwoButtonClass = () => {
+  if(isTwoActive === false) {
+      setTwoActive(true)
+      setOneActive(false)
+    }
   }
+  
 
 
   return (
@@ -36,7 +44,7 @@ import * as actions from '../state/action-creators'
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
-                   onClick={toggleButtonOneClass}>
+                   onClick={toggleOneButtonClass}>
                 A function
                 <button>
                   {isOneActive ? 'SELECTED' : 'Select'}
@@ -44,7 +52,7 @@ import * as actions from '../state/action-creators'
               </div>
 
               <div className={isTwoActive ? "answer selected" : "answer"}
-                   onClick={toggleButtonTwoClass}>
+                   onClick={toggleTwoButtonClass}>
                 An elephant
                 <button>
                 {isTwoActive ? 'SELECTED' : 'Select'}
