@@ -4,7 +4,8 @@ import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
-  const [isActive, setActive] = useState(false)
+  const [isOneActive, setOneActive] = useState(false)
+  const [isTwoActive, setTwoActive] = useState(false)
 
   const {initialQuizState, initialSelectedAnswerState, setQuiz, selectAnswer, newQuiz} = props
 
@@ -12,8 +13,12 @@ import * as actions from '../state/action-creators'
   //   setQuiz()
   // }, [])
 
-  const toggleClass = () => {
-    setActive(!isActive)
+  const toggleButtonOneClass = () => {
+    setOneActive(!isOneActive)
+  }
+
+  const toggleButtonTwoClass = () => {
+    setTwoActive(!isTwoActive)
   }
 
 
@@ -30,19 +35,19 @@ import * as actions from '../state/action-creators'
             "answer seleted" or "answer"*/}
 
             <div id="quizAnswers">
-              <div className={isActive ? "answer selected" : "answer"}
-                   onClick={toggleClass}>
+              <div className={isOneActive ? "answer selected" : "answer"}
+                   onClick={toggleButtonOneClass}>
                 A function
                 <button>
-                  SELECTED
+                  {isOneActive ? 'SELECTED' : 'Select'}
                 </button>
               </div>
 
-              <div className={isActive ? "answer selected" : "answer"}
-                   onClick={toggleClass}>
+              <div className={isTwoActive ? "answer selected" : "answer"}
+                   onClick={toggleButtonTwoClass}>
                 An elephant
                 <button>
-                  Select
+                {isTwoActive ? 'SELECTED' : 'Select'}
                 </button>
               </div>
             </div>
