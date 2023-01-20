@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
+import { fetchQuiz } from '../state/action-creators'
 import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
+  const { newQuiz, fetchQuiz} = props
+
   const [isOneActive, setOneActive] = useState(false)
   const [isTwoActive, setTwoActive] = useState(false)
 
-  const { newQuiz, fetchQuiz} = props
-
-  // useEffect(() => {
-  //   fetchQuiz()
-  // }, [])
-
-  // if(!newQuiz) return null
+  useEffect(() => {
+    fetchQuiz()
+  }, [])
+  console.log(newQuiz)
 
 
   const toggleOneButtonClass = () => {
@@ -43,7 +43,7 @@ import * as actions from '../state/action-creators'
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         true ? (
           <>
-            <h2>Name of quiz from API goes here</h2>
+            <h2>quiz name here</h2>
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
@@ -71,11 +71,23 @@ import * as actions from '../state/action-creators'
   )
 }
 
-export default connect(st => ({
-  newQuiz: st.newQuiz
+const mapStateToProps = state => {
+  return {
+    newQuiz: state.newQuiz
+  }
+}
 
-}), {
+export default connect(mapStateToProps, {fetchQuiz})(Quiz)
 
-  fetchQuiz: actions.fetchQuiz
 
-})(Quiz)
+
+
+
+// export default connect(st => ({
+//   newQuiz: st.newQuiz
+
+// }), {
+
+//   fetchQuiz: actions.fetchQuiz
+
+// })(Quiz)

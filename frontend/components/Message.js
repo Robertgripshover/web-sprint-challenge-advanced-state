@@ -9,10 +9,10 @@ function Message(props) {
   const {fetchQuiz, setMessage, message} = props
   
 
-  // useEffect(() => {
-  //   fetchQuiz()
-  // }, [])
-  // console.log(message)
+  useEffect(() => {
+    fetchQuiz()
+  }, [])
+  console.log(message)
   
 
   return <div id="message">Message from API goes here </div>

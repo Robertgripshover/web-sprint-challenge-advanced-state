@@ -39,12 +39,16 @@ export function fetchQuiz() {
       .then(res => {
         dispatch(setQuiz(res.data))
         dispatch(setMessage(res.data))
+        console.log(res.data)
       })
     // First, dispatch an action to reset the quiz state (so the "Loading next quiz..." message can display)
     // On successful GET:
     // - Dispatch an action to send the obtained quiz to its state
   }
 }
+
+
+
 export function postAnswer() {
   return function (dispatch) {
     // On successful POST:
