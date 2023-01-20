@@ -9,11 +9,11 @@ import * as actions from '../state/action-creators'
 
   const { newQuiz, fetchQuiz} = props
 
-  useEffect(() => {
-    fetchQuiz()
-  }, [])
+  // useEffect(() => {
+  //   fetchQuiz()
+  // }, [])
 
-  if(!newQuiz) return null
+  // if(!newQuiz) return null
 
 
   const toggleOneButtonClass = () => {
@@ -43,12 +43,12 @@ import * as actions from '../state/action-creators'
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         true ? (
           <>
-            <h2>{newQuiz.question}</h2>
+            <h2>Name of quiz from API goes here</h2>
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
                    onClick={toggleOneButtonClass}>
-                A function
+                    question 1 from API goes here 
                 <button>
                   {isOneActive ? 'SELECTED' : 'Select'}
                 </button>
@@ -56,7 +56,7 @@ import * as actions from '../state/action-creators'
 
               <div className={isTwoActive ? "answer selected" : "answer"}
                    onClick={toggleTwoButtonClass}>
-                An elephant
+                     question 1 from API goes here 
                 <button>
                 {isTwoActive ? 'SELECTED' : 'Select'}
                 </button>
