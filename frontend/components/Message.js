@@ -6,18 +6,20 @@ import * as actions from '../state/action-creators'
 
 function Message(props) {
 
-  const {fetchQuiz, setMessage, message} = props
-  
+  const {infoMessage} = props
 
+  
+  
   useEffect(() => {
-    fetchQuiz()
-  }, [])
-  console.log(message)
+    actions.postQuiz()
+  })
+
   
 
-  return <div id="message">Message from API goes here </div>
-
-
+  return <div id="message">{infoMessage}
+  <button>Click to get Message</button>
+  </div>
+ 
   
 
 }
@@ -30,9 +32,5 @@ function Message(props) {
 
 
 export default connect(st => ({
-  message: st.message
-}), {
-  fetchQuiz: actions.fetchQuiz,
-  setMessage: actions.setMessage
-
-})(Message)
+  infoMessage: st.infoMessage
+}), {postQuiz: actions.postQuiz})(Message)

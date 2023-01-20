@@ -21,8 +21,8 @@ export function setMessage(message) {
     return {type: actionTypes.SET_INFO_MESSAGE, payload}
  }
 
-export function setQuiz(newQuiz) { 
-  const payload = newQuiz 
+export function setQuiz(stats) { 
+  const payload = stats 
 return {type: actionTypes.SET_QUIZ_INTO_STATE, payload}
 }
 
@@ -38,7 +38,6 @@ export function fetchQuiz() {
     axios.get('http://localhost:9000/api/quiz/next')
       .then(res => {
         dispatch(setQuiz(res.data))
-        dispatch(setMessage(res.data))
         console.log(res.data)
       })
     // First, dispatch an action to reset the quiz state (so the "Loading next quiz..." message can display)
@@ -59,6 +58,12 @@ export function postAnswer() {
 }
 export function postQuiz() {
   return function (dispatch) {
+    axios.get('http://localhost:9000/api/quiz/answer')
+    .then(res => {
+      dispatch(setMessage(res.data.message))
+      console.log(res.data.message)
+    })
+    
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state
     // - Dispatch the resetting of the form

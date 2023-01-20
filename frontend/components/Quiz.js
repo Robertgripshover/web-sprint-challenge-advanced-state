@@ -5,7 +5,7 @@ import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
-  const { newQuiz, fetchQuiz} = props
+  const { stats, fetchQuiz, initialQuizState} = props
 
   const [isOneActive, setOneActive] = useState(false)
   const [isTwoActive, setTwoActive] = useState(false)
@@ -13,7 +13,9 @@ import * as actions from '../state/action-creators'
   useEffect(() => {
     fetchQuiz()
   }, [])
-  console.log(newQuiz)
+  console.log(stats)
+
+
 
 
   const toggleOneButtonClass = () => {
@@ -43,7 +45,7 @@ import * as actions from '../state/action-creators'
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         true ? (
           <>
-            <h2>quiz name here</h2>
+            <h2>Quiz name goes here</h2>
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
@@ -73,21 +75,8 @@ import * as actions from '../state/action-creators'
 
 const mapStateToProps = state => {
   return {
-    newQuiz: state.newQuiz
+    stats: state.stats
   }
 }
 
-export default connect(mapStateToProps, {fetchQuiz})(Quiz)
-
-
-
-
-
-// export default connect(st => ({
-//   newQuiz: st.newQuiz
-
-// }), {
-
-//   fetchQuiz: actions.fetchQuiz
-
-// })(Quiz)
+export default connect(mapStateToProps, {fetchQuiz: actions.fetchQuiz})(Quiz)

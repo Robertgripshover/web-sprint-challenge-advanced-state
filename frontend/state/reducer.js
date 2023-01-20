@@ -48,7 +48,7 @@ function wheel(state = initialWheelState, action) {
 
 
 
-const initialMessageState = ''
+const initialMessageState = 'Welcome to Bloomtech Quiz'
 function infoMessage(state = initialMessageState, action) {
   switch(action.type) {
     case actionTypes.RESET_FORM:
@@ -63,6 +63,8 @@ function infoMessage(state = initialMessageState, action) {
 const initialQuizState = null
 function quiz(state = initialQuizState, action) {
   switch(action.type) {
+    case actionTypes.RESET_FORM:
+      return initialQuizState
     case actionTypes.SET_QUIZ_INTO_STATE:
       return action.payload
     default:
