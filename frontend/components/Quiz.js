@@ -5,7 +5,7 @@ import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
-  const { stats, fetchQuiz, initialQuizState} = props
+  const { newQuiz, fetchQuiz} = props
 
   const [isOneActive, setOneActive] = useState(false)
   const [isTwoActive, setTwoActive] = useState(false)
@@ -13,7 +13,7 @@ import * as actions from '../state/action-creators'
   useEffect(() => {
     fetchQuiz()
   }, [])
-  console.log(stats)
+  console.log({newQuiz})
 
 
 
@@ -43,9 +43,10 @@ import * as actions from '../state/action-creators'
     <div id="wrapper">
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        true ? (
+        true ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
           <>
             <h2>Quiz name goes here</h2>
+            <h3>{}</h3>
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
@@ -75,7 +76,7 @@ import * as actions from '../state/action-creators'
 
 const mapStateToProps = state => {
   return {
-    stats: state.stats
+    newQuiz: state.newQuiz
   }
 }
 

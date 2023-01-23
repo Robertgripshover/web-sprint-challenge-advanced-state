@@ -18,12 +18,12 @@ export function selectAnswer() {
 
 export function setMessage(message) {
     const payload = message
-    return {type: actionTypes.SET_INFO_MESSAGE, payload}
+    return ({type: actionTypes.SET_INFO_MESSAGE, payload})
  }
 
-export function setQuiz(stats) { 
-  const payload = stats 
-return {type: actionTypes.SET_QUIZ_INTO_STATE, payload}
+export function setQuiz(newQuiz) { 
+  const payload = newQuiz 
+return ({type: actionTypes.SET_QUIZ_INTO_STATE, payload})
 }
 
 
