@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
-import { fetchQuiz } from '../state/action-creators'
 import * as actions from '../state/action-creators'
 
  function Quiz(props) {
@@ -16,8 +15,6 @@ import * as actions from '../state/action-creators'
   console.log({newQuiz})
 
 
-
-
   const toggleOneButtonClass = () => {
     if(isOneActive === false) {
       setOneActive(true)
@@ -31,19 +28,12 @@ import * as actions from '../state/action-creators'
       setOneActive(false)
     }
   }
-
-
-
-  //TODAY 1-20-2023 I need to use the newQuiz thing to pump my stuff coming in 
-  //from the API
   
-
-
   return (
     <div id="wrapper">
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        true ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
+       true ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
           <>
             <h2>Quiz name goes here</h2>
             <h3>{}</h3>
