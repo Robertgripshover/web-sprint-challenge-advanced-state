@@ -3,11 +3,6 @@ import { combineReducers } from 'redux'
 import * as actionTypes from './action-types'
 
 
-
-
-
-
-
  //VVVVVVVVTHIS FUNCTION COMPLETLY WORKINGVVV the 'wheel'   
 
 const initialWheelState = 0

@@ -10,10 +10,10 @@ import * as actions from '../state/action-creators'
   const [isTwoActive, setTwoActive] = useState(false)
 
   useEffect(() => {
-    fetchQuiz()
+     fetchQuiz()
   }, [])
-  console.log({newQuiz})
 
+  console.log(newQuiz)
 
   const toggleOneButtonClass = () => {
     if(isOneActive === false) {
@@ -33,15 +33,15 @@ import * as actions from '../state/action-creators'
     <div id="wrapper">
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-       true ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
+        newQuiz ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
           <>
-            <h2>Quiz name goes here</h2>
-            <h3>{}</h3>
+            <h2>{newQuiz.question}</h2>
+          
 
             <div id="quizAnswers">
               <div className={isOneActive ? "answer selected" : "answer"}
                    onClick={toggleOneButtonClass}>
-                    question 1 from API goes here 
+                    {newQuiz.answers[0].text}
                 <button>
                   {isOneActive ? 'SELECTED' : 'Select'}
                 </button>
@@ -49,7 +49,7 @@ import * as actions from '../state/action-creators'
 
               <div className={isTwoActive ? "answer selected" : "answer"}
                    onClick={toggleTwoButtonClass}>
-                     question 1 from API goes here 
+                     {newQuiz.answers[1].text}
                 <button>
                 {isTwoActive ? 'SELECTED' : 'Select'}
                 </button>
@@ -66,7 +66,7 @@ import * as actions from '../state/action-creators'
 
 const mapStateToProps = state => {
   return {
-    newQuiz: state.newQuiz
+    newQuiz: state.quiz
   }
 }
 
