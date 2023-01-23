@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../state/action-creators'
 
  function Quiz(props) {
 
-  const { newQuiz, fetchQuiz} = props
+  const {
+    newQuiz,
+    fetchQuiz,
+    selectAnswer
+  } = props
 
-  const [isOneActive, setOneActive] = useState(false)
-  const [isTwoActive, setTwoActive] = useState(false)
 
   useEffect(() => {
      fetchQuiz()
@@ -15,19 +17,7 @@ import * as actions from '../state/action-creators'
 
   console.log(newQuiz)
 
-  const toggleOneButtonClass = () => {
-    if(isOneActive === false) {
-      setOneActive(true)
-      setTwoActive(false)
-    }
-  }
 
-  const toggleTwoButtonClass = () => {
-  if(isTwoActive === false) {
-      setTwoActive(true)
-      setOneActive(false)
-    }
-  }
   
   return (
     <div id="wrapper">
@@ -36,31 +26,55 @@ import * as actions from '../state/action-creators'
         newQuiz ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
           <>
             <h2>{newQuiz.question}</h2>
-          
 
-            <div id="quizAnswers">
-              <div className={isOneActive ? "answer selected" : "answer"}
-                   onClick={toggleOneButtonClass}>
+
+
+             <div id="quizAnswers">
+              <div className={true ? "answer selected" : "answer"}
+                   >
                     {newQuiz.answers[0].text}
                 <button>
-                  {isOneActive ? 'SELECTED' : 'Select'}
+                  {true ? 'SELECTED' : 'Select'}
                 </button>
               </div>
 
-              <div className={isTwoActive ? "answer selected" : "answer"}
-                   onClick={toggleTwoButtonClass}>
+              <div className={false ? "answer selected" : "answer"}
+                   >
                      {newQuiz.answers[1].text}
                 <button>
-                {isTwoActive ? 'SELECTED' : 'Select'}
+                {true ? 'SELECTED' : 'Select'}
                 </button>
               </div>
             </div>
 
+
+
+         
+            {/* {
+              newQuiz.answers.map(answer => (
+                    <div key={answer.answer_id} className={answer_id === answer.answer_id ? "answer selected" : "answer"}
+                         onClick={() => selectAnswer(answer.answer_id)}
+                    >
+                  
+                    <button>
+                        {isOneActive ? 'SELECTED' : 'Select'}
+                    </button>
+              ))
+            }
+             */}
+
+
+
             <button id="submitAnswerBtn">Submit answer</button>
+
           </>
+
+
         ) : 'Loading next quiz...'
       }
+
     </div>
+
   )
 }
 
@@ -70,4 +84,6 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchQuiz: actions.fetchQuiz})(Quiz)
+export default connect(mapStateToProps,
+   {fetchQuiz: actions.fetchQuiz, selectAnswer: actions.selectAnswer}
+)(Quiz)

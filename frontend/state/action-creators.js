@@ -12,9 +12,15 @@ export function moveCounterClockwise() {
   return({type: actionTypes.MOVE_COUNTERCLOCKWISE})
  }
 
-export function selectAnswer() { 
-  return({type: actionTypes.SET_SELECTED_ANSWER})
+
+
+export function selectAnswer(answer_id) { 
+  const payload = answer_id
+  return({type: actionTypes.SET_SELECTED_ANSWER, payload})
 }
+
+
+
 
 export function setMessage(message) {
     const payload = message
