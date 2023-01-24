@@ -42,11 +42,11 @@ import * as actions from '../state/action-creators'
               </div>
               
 
-              <div className={false ? "answer selected" : "answer"}
+              <div className={newQuiz.answers[1].answer_id === selectedAnswer ? "answer selected" : "answer"}
                    >
                      {newQuiz.answers[1].text}
-                <button>
-                {false ? 'SELECTED' : 'Select'}
+                <button onClick={() => selectAnswer(newQuiz.answers[1].answer_id)}>
+                {newQuiz.answers[1].answer_id === selectedAnswer ? 'SELECTED' : 'Select'}
                 </button>
               </div>
             </div>
