@@ -11,7 +11,7 @@ function Message(props) {
   
   
   useEffect(() => {
-    actions.postQuiz()
+
   })
 
   
@@ -31,6 +31,6 @@ function Message(props) {
 
 
 
-export default connect(st => ({
-  infoMessage: st.infoMessage
+export default connect(state => ({
+  infoMessage: state.infoMessage
 }), {postQuiz: actions.postQuiz})(Message)

@@ -79,8 +79,6 @@ function selectedAnswer(state = initialSelectedAnswerState, action) {
 }
 
 
-
-
 const initialFormState = {
   newQuestion: '',
   newTrueAnswer: '',
@@ -89,5 +87,9 @@ const initialFormState = {
 function form(state = initialFormState, action) {
   return state
 }
+
+
+
+
 
 export default combineReducers({ wheel, quiz, selectedAnswer, infoMessage, form })
