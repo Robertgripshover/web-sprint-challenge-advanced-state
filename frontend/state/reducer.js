@@ -68,21 +68,17 @@ function quiz(state = initialQuizState, action) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 const initialSelectedAnswerState = ''
 function selectedAnswer(state = initialSelectedAnswerState, action) {
-  return state
+  switch(action.type) {
+    case actionTypes.SET_SELECTED_ANSWER:
+      return action.payload
+    default:
+      return state
+  }
 }
+
+
 
 
 const initialFormState = {

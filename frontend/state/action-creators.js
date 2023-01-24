@@ -13,13 +13,10 @@ export function moveCounterClockwise() {
  }
 
 
-
 export function selectAnswer(answer_id) { 
   const payload = answer_id
   return({type: actionTypes.SET_SELECTED_ANSWER, payload})
 }
-
-
 
 
 export function setMessage(message) {

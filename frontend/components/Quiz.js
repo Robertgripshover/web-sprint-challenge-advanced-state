@@ -7,6 +7,7 @@ import * as actions from '../state/action-creators'
   const {
     newQuiz,
     fetchQuiz,
+    selectedAnswer,
     selectAnswer
   } = props
 
@@ -30,39 +31,25 @@ import * as actions from '../state/action-creators'
 
 
              <div id="quizAnswers">
-              <div className={true ? "answer selected" : "answer"}
-                   >
+              <div className={newQuiz.answers[0].answer_id === selectedAnswer ? "answer selected" : "answer"}
+                  >
                     {newQuiz.answers[0].text}
-                <button>
-                  {true ? 'SELECTED' : 'Select'}
+                <button onClick={() => selectAnswer(newQuiz.answers[0].answer_id)}>
+                  {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "select"}
+                  
                 </button>
+                {console.log(selectedAnswer)}
               </div>
+              
 
               <div className={false ? "answer selected" : "answer"}
                    >
                      {newQuiz.answers[1].text}
                 <button>
-                {true ? 'SELECTED' : 'Select'}
+                {false ? 'SELECTED' : 'Select'}
                 </button>
               </div>
             </div>
-
-
-
-         
-            {/* {
-              newQuiz.answers.map(answer => (
-                    <div key={answer.answer_id} className={answer_id === answer.answer_id ? "answer selected" : "answer"}
-                         onClick={() => selectAnswer(answer.answer_id)}
-                    >
-                  
-                    <button>
-                        {isOneActive ? 'SELECTED' : 'Select'}
-                    </button>
-              ))
-            }
-             */}
-
 
 
             <button id="submitAnswerBtn">Submit answer</button>
@@ -80,10 +67,9 @@ import * as actions from '../state/action-creators'
 
 const mapStateToProps = state => {
   return {
-    newQuiz: state.quiz
+    newQuiz: state.quiz,
+    selectedAnswer: state.selectedAnswer
   }
 }
 
-export default connect(mapStateToProps,
-   {fetchQuiz: actions.fetchQuiz, selectAnswer: actions.selectAnswer}
-)(Quiz)
+export default connect(mapStateToProps, actions)(Quiz)
