@@ -31,24 +31,29 @@ import * as actions from '../state/action-creators'
 
 
              <div id="quizAnswers">
-              <div className={newQuiz.answers[0].answer_id === selectedAnswer ? "answer selected" : "answer"}
-                  >
-                    {newQuiz.answers[0].text}
-                <button onClick={() => selectAnswer(newQuiz.answers[0].answer_id)}>
-                  {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "select"}
-                  
-                </button>
-                {console.log(selectedAnswer)}
+              <div className={newQuiz.answers[0].answer_id === selectedAnswer ? "answer selected" : "answer"}>
+
+                      {newQuiz.answers[0].text}
+
+                  <button onClick={() => selectAnswer(newQuiz.answers[0].answer_id)}>
+                    {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "select"}                  
+                  </button>
+            
               </div>
               
 
-              <div className={newQuiz.answers[1].answer_id === selectedAnswer ? "answer selected" : "answer"}
-                   >
-                     {newQuiz.answers[1].text}
-                <button onClick={() => selectAnswer(newQuiz.answers[1].answer_id)}>
-                {newQuiz.answers[1].answer_id === selectedAnswer ? 'SELECTED' : 'Select'}
-                </button>
-              </div>
+                <div className={newQuiz.answers[1].answer_id === selectedAnswer ? "answer selected" : "answer"}>
+
+                        {newQuiz.answers[1].text}
+
+                    <button onClick={() => selectAnswer(newQuiz.answers[1].answer_id)}>
+                    {newQuiz.answers[1].answer_id === selectedAnswer ? 'SELECTED' : 'Select'}
+                    </button>
+
+                </div>
+
+                {console.log(selectedAnswer)}
+
             </div>
 
 
