@@ -18,6 +18,10 @@ import * as actions from '../state/action-creators'
 
   console.log(newQuiz)
 
+  const onAnswer = () => {
+    console.log('hello world')
+  }
+
 
   
   return (
@@ -57,7 +61,7 @@ import * as actions from '../state/action-creators'
             </div>
 
 
-            <button id="submitAnswerBtn">Submit answer</button>
+            <button id="submitAnswerBtn" onClick={onAnswer} disabled={!selectedAnswer}>Submit answer</button>
 
           </>
 
