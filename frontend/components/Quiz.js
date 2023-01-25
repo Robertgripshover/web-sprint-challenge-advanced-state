@@ -29,7 +29,7 @@ import * as actions from '../state/action-creators'
     <div id="wrapper">
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
-        newQuiz ? ( //<<<< Right here at the 'true' spot is where I need to be newQuiz eventually
+        newQuiz ? (
           <>
             <h2>{newQuiz.question}</h2>
 

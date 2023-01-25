@@ -38,7 +38,10 @@ export function inputChange(name, value) {
 
 
 
-export function resetForm() {}
+export function resetForm(reset) {
+  const payload = {reset}
+  return ({type: actionTypes.RESET_FORM, payload})
+}
  
 
 // ❗ Async action creators
@@ -76,13 +79,13 @@ export function postAnswer(quiz_id, answer_id, getNext) {
 
 
 
-export function postQuiz() {
+export function postQuiz(question_text, true_answer_text, false_answer_payload) {
   return function (dispatch) {
-    axios.get('http://localhost:9000/api/quiz/answer')
+    axios.get('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_payload})
     .then(res => {
-
       dispatch(setMessage(res.data.message))
-      console.log(res.data.message)
+      dispatch(resetForm())
+      console.log('you comepleted the posting of the quiz!')
     })
     
     // On successful POST:
