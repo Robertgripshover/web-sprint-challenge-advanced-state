@@ -22,7 +22,6 @@ import * as actions from '../state/action-creators'
   const onAnswer = () => {
     const {quiz_id} = newQuiz
     postAnswer(quiz_id, answer_id)
-    console.log(answer_id)
   }
 
   
@@ -58,7 +57,7 @@ import * as actions from '../state/action-creators'
 
                 </div>
 
-                {console.log(selectedAnswer)}
+              
 
             </div>
 

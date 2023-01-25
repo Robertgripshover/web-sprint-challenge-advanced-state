@@ -86,6 +86,8 @@ const initialFormState = {
 }
 function form(state = initialFormState, action) {
   switch(action.type) {
+    case actionTypes.RESET_FORM: 
+      return initialFormState
     case actionTypes.INPUT_CHANGE: {
       const {name, value} = action.payload
       if (Object.keys(state).includes(name)) {
@@ -93,7 +95,7 @@ function form(state = initialFormState, action) {
       }
       return state
     }
-        
+     
     default:
       return state
   }
