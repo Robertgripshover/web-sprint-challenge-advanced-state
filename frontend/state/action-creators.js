@@ -53,6 +53,11 @@ export function fetchQuiz() {
 
 export function postAnswer() {
   return function (dispatch) {
+    axios.post('')
+      .then(res => {
+        dispatch(selectAnswer(null))
+        dispatch(setMessage(res))
+      })
     // On successful POST:
     // - Dispatch an action to reset the selected answer state
     // - Dispatch an action to set the server message to state
