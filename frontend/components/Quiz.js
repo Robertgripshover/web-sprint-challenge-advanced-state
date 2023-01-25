@@ -40,7 +40,7 @@ import * as actions from '../state/action-creators'
                       {newQuiz.answers[0].text}
 
                   <button onClick={() => selectAnswer(newQuiz.answers[0].answer_id)}>
-                    {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "select"}                  
+                    {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "Select"}                  
                   </button>
             
               </div>
