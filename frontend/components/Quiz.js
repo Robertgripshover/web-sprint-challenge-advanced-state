@@ -5,10 +5,12 @@ import * as actions from '../state/action-creators'
  function Quiz(props) {
 
   const {
+    answer_id,
     newQuiz,
     fetchQuiz,
     selectedAnswer,
-    selectAnswer
+    selectAnswer,
+    postAnswer
   } = props
 
 
@@ -19,8 +21,12 @@ import * as actions from '../state/action-creators'
   console.log(newQuiz)
 
   const onAnswer = () => {
-    console.log('hello world')
+    const {quiz_id} = newQuiz
+    postAnswer({quiz_id, answer_id})
+    console.log('tried to post an answer')
   }
+
+
 
 
   
@@ -77,7 +83,8 @@ import * as actions from '../state/action-creators'
 const mapStateToProps = state => {
   return {
     newQuiz: state.quiz,
-    selectedAnswer: state.selectedAnswer
+    selectedAnswer: state.selectedAnswer,
+
   }
 }
 
