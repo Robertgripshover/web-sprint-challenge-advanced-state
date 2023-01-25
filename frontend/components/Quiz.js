@@ -18,16 +18,12 @@ import * as actions from '../state/action-creators'
      fetchQuiz()
   }, [])
 
-  console.log(newQuiz)
-
+  
   const onAnswer = () => {
     const {quiz_id} = newQuiz
-    postAnswer({quiz_id, answer_id})
-    console.log('tried to post an answer')
+    postAnswer(quiz_id, answer_id)
+    console.log(answer_id)
   }
-
-
-
 
   
   return (
@@ -84,7 +80,7 @@ const mapStateToProps = state => {
   return {
     newQuiz: state.quiz,
     selectedAnswer: state.selectedAnswer,
-
+    answer_id: state.selectedAnswer
   }
 }
 

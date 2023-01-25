@@ -85,7 +85,18 @@ const initialFormState = {
   newFalseAnswer: '',
 }
 function form(state = initialFormState, action) {
-  return state
+  switch(action.type) {
+    case actionTypes.INPUT_CHANGE: {
+      const {name, value} = action.payload
+      if (Object.keys(state).includes(name)) {
+        return { ...state, [name]: value}
+      }
+      return state
+    }
+        
+    default:
+      return state
+  }
 }
 
 
