@@ -20,9 +20,12 @@ export function Form(props) {
     inputChange(name, value)
   }
 
-  console.log(question_text,
+  //my testing console.log VVV
+  console.log(
+    question_text,
     true_answer_text,
-    false_answer_text)
+    false_answer_text
+    )
 
 
   // const submitButtonActive = () => {
