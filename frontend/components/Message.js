@@ -17,7 +17,7 @@ function Message(props) {
   
 
   return <div id="message">{infoMessage}
-  <button>Click to get Message</button>
+
   </div>
  
   

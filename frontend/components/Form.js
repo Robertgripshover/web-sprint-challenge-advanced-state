@@ -10,9 +10,8 @@ export function Form(props) {
     postQuiz,
     question_text,
     true_answer_text,
-    false_answer_payload
+    false_answer_text
   } = props
-
 
 
   const onChange = evt => {
@@ -21,12 +20,24 @@ export function Form(props) {
     inputChange(name, value)
   }
 
+  console.log(question_text,
+    true_answer_text,
+    false_answer_text)
 
 
-  const onSubmit = evt => {
+  // const submitButtonActive = () => {
+  //   if (
+  //       question_text.value.trim().length > 0
+  //    && true_answer_text.value.trim().length > 0
+  //    && false_answer_text.value.trim().length > 0)
+  //     return {}
+  // }
+
+    const onSubmit = evt => {
     evt.preventDefault()
-    postQuiz(question_text, true_answer_text, false_answer_payload)
+    postQuiz(question_text, true_answer_text, false_answer_text)
   }
+
 
 
   return (
@@ -45,8 +56,10 @@ export function Form(props) {
 
 const mapStateToProps = state => {
   return {
-    input: state.form
- 
+    input: state.form,
+    question_text: state.form,
+    true_answer_text: state.form,
+    false_answer_text: state.form
   }
 }
 

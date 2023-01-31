@@ -79,10 +79,10 @@ export function postAnswer(quiz_id, answer_id) {
 
 
 
-export function postQuiz(question_text, true_answer_text, false_answer_payload) {
+export function postQuiz(question_text, true_answer_text, false_answer_text) {
   return function (dispatch) {
       
-    axios.get('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_payload})
+    axios.get('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_text})
       .then(res => {
         dispatch(setMessage(res.data.message))
         dispatch(resetForm())
