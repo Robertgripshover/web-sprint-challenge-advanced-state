@@ -3,16 +3,15 @@ import { combineReducers } from 'redux'
 import * as actionTypes from './action-types'
 
 
- //VVVVVVVVTHIS FUNCTION COMPLETLY WORKINGVVV the 'wheel'   
+//IMPORTANT AS OF JAN 31 2023 I THINK THAT THIS REDUCER COMPONENT HAS EVERYTHING WORKING RIGHT
 
+
+//My wheel reducer
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
  
-
   switch(action.type) {
-
     case actionTypes.MOVE_CLOCKWISE:
-      
       if(state.initialWheelState === 5){
         return {initialWheelState: 0}
       }
@@ -22,7 +21,6 @@ function wheel(state = initialWheelState, action) {
       }
 
     case actionTypes.MOVE_COUNTERCLOCKWISE:
-      
       if(state.initialWheelState === 0){
         return {initialWheelState: 5}
       }
@@ -39,10 +37,9 @@ function wheel(state = initialWheelState, action) {
   }
 }
 
-//^^^^^^^THIS FUNCTION COMPLETLY WORKING^^^ the 'wheel'  
 
 
-
+//My message reducer
 const initialMessageState = 'Welcome to Bloomtech Quiz'
 function infoMessage(state = initialMessageState, action) {
   switch(action.type) {
@@ -55,6 +52,8 @@ function infoMessage(state = initialMessageState, action) {
   }
 }
 
+
+//My quiz reducer
 const initialQuizState = null
 function quiz(state = initialQuizState, action) {
   switch(action.type) {
@@ -68,6 +67,7 @@ function quiz(state = initialQuizState, action) {
 }
 
 
+//My selected answer reducer
 const initialSelectedAnswerState = ''
 function selectedAnswer(state = initialSelectedAnswerState, action) {
   switch(action.type) {
@@ -80,7 +80,7 @@ function selectedAnswer(state = initialSelectedAnswerState, action) {
 
 
 
-
+//My form reducer
 const initialFormState = {
   newQuestion: '',
   newTrueAnswer: '',
@@ -102,8 +102,6 @@ function form(state = initialFormState, action) {
       return state
   }
 }
-
-
 
 
 
