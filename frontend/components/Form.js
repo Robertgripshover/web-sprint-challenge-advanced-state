@@ -22,9 +22,7 @@ export function Form(props) {
 
   //my testing console.log VVV
   console.log(
-    question_text,
-    true_answer_text,
-    false_answer_text
+    question_text
     )
 
 
