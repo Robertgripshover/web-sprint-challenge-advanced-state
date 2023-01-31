@@ -40,7 +40,7 @@ function wheel(state = initialWheelState, action) {
 
 
 //My message reducer
-const initialMessageState = 'Welcome to Bloomtech Quiz'
+const initialMessageState = 'Welcome to Bloomquiz'
 function infoMessage(state = initialMessageState, action) {
   switch(action.type) {
     case actionTypes.RESET_FORM:

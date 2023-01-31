@@ -5,12 +5,13 @@ import * as actionCreators from '../state/action-creators'
 export function Form(props) {
 
   const {
-    input,
+    
+    wholeFormText, //<<< added 'wholeFormText' as an experiment, can return to normal if removed
     inputChange,
     postQuiz,
-    question_text,
-    true_answer_text,
-    false_answer_text
+    // question_text,
+    // true_answer_text,
+    // false_answer_text
   } = props
 
 
@@ -21,22 +22,24 @@ export function Form(props) {
   }
 
   //my testing console.log VVV
-  console.log(
-    question_text
-    )
 
 
-  // const submitButtonActive = () => {
-  //   if (
-  //       question_text.value.trim().length > 0
-  //    && true_answer_text.value.trim().length > 0
-  //    && false_answer_text.value.trim().length > 0)
-  //     return {}
-  // }
+
+
+  
+  const question_text = wholeFormText.newQuestion
+  const true_answer_text = wholeFormText.newTrueAnswer
+  const false_answer_text = wholeFormText.newFalseAnswer
+
+  console.log(question_text, true_answer_text, false_answer_text)
+
+ 
 
     const onSubmit = evt => {
+    
     evt.preventDefault()
     postQuiz(question_text, true_answer_text, false_answer_text)
+    // postQuiz(wholeFormText)
   }
 
 
@@ -50,17 +53,29 @@ export function Form(props) {
 
 
 
-      <button id="submitNewQuizBtn">Submit new quiz</button>
+     <button id="submitNewQuizBtn">Submit new quiz</button>
     </form>
   )
 }
 
+
+
+  // const submitButtonActive = () => {
+  //   if (
+  //       question_text.value.trim().length > 0
+  //    && true_answer_text.value.trim().length > 0
+  //    && false_answer_text.value.trim().length > 0)
+  //     return {}
+  // }
+
+
+
 const mapStateToProps = state => {
   return {
-    input: state.form,
-    question_text: state.form,
-    true_answer_text: state.form,
-    false_answer_text: state.form
+    wholeFormText: state.form
+    // question_text: state.form,
+    // true_answer_text: state.form,
+    // false_answer_text: state.form
   }
 }
 
