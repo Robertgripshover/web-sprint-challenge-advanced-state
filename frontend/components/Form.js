@@ -31,7 +31,9 @@ export function Form(props) {
   const true_answer_text = wholeFormText.newTrueAnswer
   const false_answer_text = wholeFormText.newFalseAnswer
 
-  console.log(question_text, true_answer_text, false_answer_text)
+  console.log(question_text)
+  console.log(true_answer_text)
+  console.log(false_answer_text)
 
  
 
