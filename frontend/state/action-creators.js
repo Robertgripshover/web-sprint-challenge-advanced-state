@@ -59,13 +59,13 @@ export function fetchQuiz() {
 }
 
 
-export function postAnswer(quiz_id, answer_id, getNext) {
+export function postAnswer(quiz_id, answer_id) {
   return function (dispatch) {
     axios.post('http://localhost:9000/api/quiz/answer', {quiz_id, answer_id})
       .then(res => {
         dispatch(selectAnswer(null))
         dispatch(setMessage(res.data.message))
-        getNext && dispatch(fetchQuiz())
+        dispatch(fetchQuiz())
       })
       
     // On successful POST:
