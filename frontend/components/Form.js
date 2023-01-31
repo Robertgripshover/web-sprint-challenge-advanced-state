@@ -4,7 +4,14 @@ import * as actionCreators from '../state/action-creators'
 
 export function Form(props) {
 
-  const {input, inputChange, postQuiz, question_text, true_answer_text, false_answer_payload} = props
+  const {
+    input,
+    inputChange,
+    postQuiz,
+    question_text,
+    true_answer_text,
+    false_answer_payload
+  } = props
 
 
 
@@ -21,14 +28,6 @@ export function Form(props) {
     postQuiz(question_text, true_answer_text, false_answer_payload)
   }
 
-  // onSubmit = evt => { // =============== 👉 [Code-Along 11.2] - step 1
-  //   evt.preventDefault()
-  //   const { quizForm, editQuestion, createQuestion } = this.props
-  //   const payload = { ...quizForm, options: Object.values(quizForm.options) }
-  //   const callback = quizForm.question_id ? editQuestion : createQuestion
-  //   callback(payload, this.onRedirect('/'))
-  // }
-
 
   return (
     <form id="form" onSubmit={onSubmit}>
@@ -36,6 +35,9 @@ export function Form(props) {
       <input maxLength={50} onChange={onChange} id="newQuestion" placeholder="Enter question" />
       <input maxLength={50} onChange={onChange} id="newTrueAnswer" placeholder="Enter true answer" />
       <input maxLength={50} onChange={onChange} id="newFalseAnswer" placeholder="Enter false answer" />
+
+
+
       <button id="submitNewQuizBtn">Submit new quiz</button>
     </form>
   )

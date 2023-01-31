@@ -10,7 +10,7 @@ import * as actions from '../state/action-creators'
     fetchQuiz,
     selectedAnswer,
     selectAnswer,
-    postAnswer
+    postAnswer,
   } = props
 
 
@@ -21,7 +21,6 @@ import * as actions from '../state/action-creators'
   
   const onAnswer = () => {
     const {quiz_id} = newQuiz
-    fetchQuiz()
     postAnswer(quiz_id, answer_id)
   }
 

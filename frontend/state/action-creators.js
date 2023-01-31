@@ -81,12 +81,12 @@ export function postAnswer(quiz_id, answer_id) {
 
 export function postQuiz(question_text, true_answer_text, false_answer_payload) {
   return function (dispatch) {
+      
     axios.get('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_payload})
-    .then(res => {
-      dispatch(setMessage(res.data.message))
-      dispatch(resetForm())
-      console.log('you comepleted the posting of the quiz!')
-    })
+      .then(res => {
+        dispatch(setMessage(res.data.message))
+        dispatch(resetForm())
+      })
     
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state
