@@ -54,7 +54,7 @@ export function Form(props) {
       <input maxLength={50} onChange={onChange} id="newTrueAnswer" value={newForm.newTrueAnswer} placeholder="Enter true answer" />
       <input maxLength={50} onChange={onChange} id="newFalseAnswer" value={newForm.newFalseAnswer} placeholder="Enter false answer" />
 
-    <p>{count}</p>
+    <p>Button active if not zero: {count}</p>
 
      <button id="submitNewQuizBtn" disabled={count === 1 ? '' : 'disabled'}>Submit new quiz</button>
     </form>
