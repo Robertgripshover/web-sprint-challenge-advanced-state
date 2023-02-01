@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../state/action-creators'
 
@@ -8,24 +8,14 @@ function Message(props) {
 
   const {infoMessage} = props
 
-  
-  
-  useEffect(() => {
 
-  })
-
-  
-
-  return <div id="message">{infoMessage}
-
-  </div>
+  return (
+    <div id="message">{infoMessage}</div>
+  )
  
   
 
 }
-
-
-
 
 
 

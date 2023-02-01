@@ -26,24 +26,26 @@ import * as actions from '../state/action-creators'
 
   
   return (
+    
     <div id="wrapper">
+
       {
         // quiz already in state? Let's use that, otherwise render "Loading next quiz..."
         newQuiz ? (
+
           <>
+
             <h2>{newQuiz.question}</h2>
 
+            <div id="quizAnswers">
 
-
-             <div id="quizAnswers">
               <div className={newQuiz.answers[0].answer_id === selectedAnswer ? "answer selected" : "answer"}>
 
                       {newQuiz.answers[0].text}
 
                   <button onClick={() => selectAnswer(newQuiz.answers[0].answer_id)}>
                     {newQuiz.answers[0].answer_id === selectedAnswer ? "SELECTED" : "Select"}                  
-                  </button>
-            
+                  </button>            
               </div>
               
 
@@ -54,13 +56,9 @@ import * as actions from '../state/action-creators'
                     <button onClick={() => selectAnswer(newQuiz.answers[1].answer_id)}>
                     {newQuiz.answers[1].answer_id === selectedAnswer ? 'SELECTED' : 'Select'}
                     </button>
-
-                </div>
-
-              
-
+              </div>
+          
             </div>
-
 
             <button id="submitAnswerBtn" onClick={onAnswer} disabled={!selectedAnswer}>Submit answer</button>
 
