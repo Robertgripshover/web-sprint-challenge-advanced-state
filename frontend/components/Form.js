@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from '../state/action-creators'
+import { useState } from 'react'
 
 export function Form(props) {
 
@@ -13,11 +14,29 @@ export function Form(props) {
     postQuiz,
   } = props
 
+  
+  const [count, setCount] = useState(0) //<<< I am using this for now, to try and 
+  //make the submit button be active or not.
+  //if the count is greater than the number 1 it will be deactivated. If the 
+  //count is less than 1 then it will be deactivated. 
+  
+
+
+  const activateSubmitButton = () => {
+    if(question_text.length > 0 && true_answer_text.length > 0 && false_answer_text.length > 0) {
+      return setCount(1)
+    }
+    else if(question_text.length === 0 && true_answer_text.length === 0 && false_answer_text.length === 0) {
+      return setCount(0)
+    }
+  }
+
 
   const onChange = evt => {
     const name = evt.target.id
     const value = evt.target.value
     inputChange(name, value)
+    activateSubmitButton()
   }
 
   
@@ -28,7 +47,6 @@ export function Form(props) {
 
  
 
-
   return (
     <form id="form" onSubmit={onSubmit}>
       <h2>Create New Quiz</h2>
@@ -36,9 +54,9 @@ export function Form(props) {
       <input maxLength={50} onChange={onChange} id="newTrueAnswer" value={newForm.newTrueAnswer} placeholder="Enter true answer" />
       <input maxLength={50} onChange={onChange} id="newFalseAnswer" value={newForm.newFalseAnswer} placeholder="Enter false answer" />
 
+    <p>{count}</p>
 
-
-     <button id="submitNewQuizBtn">Submit new quiz</button>
+     <button id="submitNewQuizBtn" disabled={count === 1 ? '' : 'disabled'}>Submit new quiz</button>
     </form>
   )
 }
