@@ -23,10 +23,10 @@ export function Form(props) {
 
 
   const activateSubmitButton = () => {
-    if(question_text.length > 0 && true_answer_text.length > 0 && false_answer_text.length > 0) {
+    if(question_text.trim().length > 0 && true_answer_text.trim().length > 0 && false_answer_text.trim().length > 0) {
       return setCount(1)
     }
-    else if(question_text.length === 0 && true_answer_text.length === 0 && false_answer_text.length === 0) {
+    else if(question_text.trim().length === 0 && true_answer_text.trim().length === 0 && false_answer_text.trim().length === 0) {
       return setCount(0)
     }
   }
