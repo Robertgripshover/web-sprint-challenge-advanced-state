@@ -43,6 +43,7 @@ export function Form(props) {
   const onSubmit = evt => {
       evt.preventDefault()
       postQuiz(question_text, true_answer_text, false_answer_text)
+      setCount(0)
   }
 
  
