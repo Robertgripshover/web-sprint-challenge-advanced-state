@@ -6,11 +6,12 @@ import axios from 'axios'
 
 export function moveClockwise() {
   return({type: actionTypes.MOVE_CLOCKWISE}) 
- }
+}
+
 
 export function moveCounterClockwise() {
   return({type: actionTypes.MOVE_COUNTERCLOCKWISE})
- }
+}
 
 
 export function selectAnswer(answer_id) { 
@@ -22,7 +23,7 @@ export function selectAnswer(answer_id) {
 export function setMessage(message) {
     const payload = message
     return ({type: actionTypes.SET_INFO_MESSAGE, payload})
- }
+}
 
 
 export function setQuiz(newQuiz) { 
@@ -31,12 +32,10 @@ return ({type: actionTypes.SET_QUIZ_INTO_STATE, payload})
 }
 
 
-
 export function inputChange(name, value) {
   const payload = {name, value}
   return ({type: actionTypes.INPUT_CHANGE, payload})
- }
-
+}
 
 
 export function resetForm(reset) {
@@ -67,8 +66,7 @@ export function postAnswer(quiz_id, answer_id) {
         dispatch(selectAnswer(null))
         dispatch(setMessage(res.data.message))
         dispatch(fetchQuiz())
-      })
-      
+      })      
     // On successful POST:
     // - Dispatch an action to reset the selected answer state
     // - Dispatch an action to set the server message to state
@@ -77,23 +75,16 @@ export function postAnswer(quiz_id, answer_id) {
 }
 
 
-
-
 export function postQuiz(question_text, true_answer_text, false_answer_text) {
   return function (dispatch) {
     axios.post('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_text})
       .then(res => {
-        
-        console.log(res)
-
         dispatch(setMessage(`Congrats: "${res.data.question}" is a great question!`))
-        
         dispatch(resetForm())
       })
       .catch(err => {
         dispatch(setMessage(err.message))
-      })
-    
+      })    
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state
     // - Dispatch the resetting of the form

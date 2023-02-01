@@ -3,14 +3,12 @@ import { combineReducers } from 'redux'
 import * as actionTypes from './action-types'
 
 
-//IMPORTANT AS OF JAN 31 2023 I THINK THAT THIS REDUCER COMPONENT HAS EVERYTHING WORKING RIGHT
-
-
 //My wheel reducer
 const initialWheelState = 0
 function wheel(state = initialWheelState, action) {
  
   switch(action.type) {
+
     case actionTypes.MOVE_CLOCKWISE:
       if(state.initialWheelState === 5){
         return {initialWheelState: 0}
@@ -36,7 +34,6 @@ function wheel(state = initialWheelState, action) {
       } 
   }
 }
-
 
 
 //My message reducer
@@ -79,7 +76,6 @@ function selectedAnswer(state = initialSelectedAnswerState, action) {
 }
 
 
-
 //My form reducer
 const initialFormState = {
   newQuestion: '',
@@ -102,7 +98,6 @@ function form(state = initialFormState, action) {
       return state
   }
 }
-
 
 
 export default combineReducers({ wheel, quiz, selectedAnswer, infoMessage, form })

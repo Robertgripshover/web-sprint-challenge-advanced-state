@@ -2,9 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { moveClockwise, moveCounterClockwise } from '../state/action-creators'
 
-//NOTICE 1/17/2023
-//COMPONENET COMPLETE! 
-//this component is working perfectly and is finished. 
  
 function Wheel(props) {
 
@@ -42,9 +39,8 @@ function Wheel(props) {
       </div>
 
    </div>
-
+   
   )
-
 }
 
 

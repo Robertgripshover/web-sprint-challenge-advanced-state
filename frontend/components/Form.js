@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../state/action-creators'
 import { useState } from 'react'
 
+
 export function Form(props) {
 
   const {
@@ -20,8 +21,6 @@ export function Form(props) {
   //if the count is greater than the number 1 it will be deactivated. If the 
   //count is less than 1 then it will be deactivated. 
   
-
-
   const activateSubmitButton = () => {
     if(question_text.trim().length > 0 && true_answer_text.trim().length > 0 && false_answer_text.trim().length > 0) {
       return setCount(1)
@@ -31,14 +30,12 @@ export function Form(props) {
     }
   }
 
-
   const onChange = evt => {
     const name = evt.target.id
     const value = evt.target.value
     inputChange(name, value)
     activateSubmitButton()
   }
-
   
   const onSubmit = evt => {
       evt.preventDefault()
@@ -46,7 +43,6 @@ export function Form(props) {
       setCount(0)
   }
 
- 
 
   return (
     <form id="form" onSubmit={onSubmit}>
@@ -71,7 +67,6 @@ const mapStateToProps = state => {
     false_answer_text: state.form.newFalseAnswer
    }
 }
-
 
 
 export default connect(mapStateToProps, actionCreators)(Form)
