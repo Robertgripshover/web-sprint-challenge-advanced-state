@@ -12,12 +12,9 @@ function Message(props) {
   return (
     <div id="message">{infoMessage}</div>
   )
- 
-  
+   
 
 }
-
-
 
 
 

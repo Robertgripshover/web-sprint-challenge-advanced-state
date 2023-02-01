@@ -79,12 +79,8 @@ export function postAnswer(quiz_id, answer_id) {
 
 
 
-
-
 export function postQuiz(question_text, true_answer_text, false_answer_text) {
   return function (dispatch) {
-      
-
     axios.post('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_text})
       .then(res => {
         
