@@ -5,7 +5,10 @@ import * as actionCreators from '../state/action-creators'
 export function Form(props) {
 
   const {
-    newForm, //<<< added 'wholeFormText' as an experiment, can return to normal if removed
+    newForm, //<<< added 'newForm' as an experiment, can return to normal if removed
+    question_text,
+    true_answer_text,
+    false_answer_text, 
     inputChange,
     postQuiz,
   } = props
@@ -17,18 +20,13 @@ export function Form(props) {
     inputChange(name, value)
   }
 
-
-   
-  // const question_text = wholeFormText.newQuestion
-  // const true_answer_text = wholeFormText.newTrueAnswer
-  // const false_answer_text = wholeFormText.newFalseAnswer
-
-
+  
   const onSubmit = evt => {
       evt.preventDefault()
-      postQuiz(newForm)
+      postQuiz(question_text, true_answer_text, false_answer_text)
   }
 
+ 
 
 
   return (
@@ -49,7 +47,12 @@ export function Form(props) {
 const mapStateToProps = state => {
   return {
     newForm: state.form,
+    question_text: state.form.newQuestion,
+    true_answer_text: state.form.newTrueAnswer,
+    false_answer_text: state.form.newFalseAnswer
    }
 }
+
+
 
 export default connect(mapStateToProps, actionCreators)(Form)
