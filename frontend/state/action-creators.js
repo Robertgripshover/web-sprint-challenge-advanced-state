@@ -24,6 +24,7 @@ export function setMessage(message) {
     return ({type: actionTypes.SET_INFO_MESSAGE, payload})
  }
 
+
 export function setQuiz(newQuiz) { 
   const payload = newQuiz 
 return ({type: actionTypes.SET_QUIZ_INTO_STATE, payload})
@@ -79,17 +80,17 @@ export function postAnswer(quiz_id, answer_id) {
 
 
 
-export function postQuiz(question_text, true_answer_text, false_answer_text) {
+export function postQuiz(newQuestion, newTrueAnswer, newFalseAnswer) {
   return function (dispatch) {
       
-    axios.post('http://localhost:9000/api/quiz/new', {question_text, true_answer_text, false_answer_text})
+    axios.post('http://localhost:9000/api/quiz/new', {question_text: newQuestion, true_answer_text: newTrueAnswer, false_answer_text: newFalseAnswer})
       .then(res => {
         dispatch(setMessage(res.data.message))
         dispatch(resetForm())
       })
-      .catch(err => {
-        dispatch(setMessage(err.message))
-      })
+      // .catch(err => {
+      //   dispatch(setMessage(err.message))
+      // })
     
     // On successful POST:
     // - Dispatch the correct message to the the appropriate state

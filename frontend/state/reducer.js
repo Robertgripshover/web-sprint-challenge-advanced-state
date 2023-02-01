@@ -40,7 +40,7 @@ function wheel(state = initialWheelState, action) {
 
 
 //My message reducer
-const initialMessageState = 'Welcome to Bloomquiz'
+const initialMessageState = ''
 function infoMessage(state = initialMessageState, action) {
   switch(action.type) {
     case actionTypes.RESET_FORM:
@@ -84,7 +84,7 @@ function selectedAnswer(state = initialSelectedAnswerState, action) {
 const initialFormState = {
   newQuestion: '',
   newTrueAnswer: '',
-  newFalseAnswer: '',
+  newFalseAnswer: ''
 }
 function form(state = initialFormState, action) {
   switch(action.type) {
