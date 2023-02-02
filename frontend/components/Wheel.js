@@ -21,8 +21,6 @@ function Wheel(props) {
 
     <div id="wrapper">
 
-      <div>Wheel at position: {`${initialWheelState}`}</div>{/*This div is for experimenting, it can be removed after*/}
-
       <div id="wheel">
         <div className={initialWheelState === 0 ? "cog active" : 'cog'} style={{ "--i": 0 }}>{initialWheelState === 0 ? "B" : ''}</div>
         <div className={initialWheelState === 1 ? "cog active" : 'cog'} style={{ "--i": 1 }}>{initialWheelState === 1 ? "B" : ''}</div>
