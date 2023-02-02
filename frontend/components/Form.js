@@ -19,7 +19,7 @@ export function Form(props) {
     if(question_text.trim().length > 0 && true_answer_text.trim().length > 0 && false_answer_text.trim().length > 0) {
       return false
     }
-    else if(question_text.trim().length === 0 && true_answer_text.trim().length === 0 && false_answer_text.trim().length === 0) {
+    else {
       return true
     }
   }
